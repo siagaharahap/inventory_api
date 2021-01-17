@@ -1,7 +1,7 @@
 <?php
 require("../koneksi.php");
 
-$query = "SELECT * FROM barang_keluar";
+$query = "SELECT * FROM barang_keluar a, data_barang b where a.id_barang=b.id_barang";
 $eksekusi = mysqli_query($konek, $query);
 $cek = mysqli_affected_rows($konek);
 
@@ -12,7 +12,7 @@ $cek = mysqli_affected_rows($konek);
 
         while($ambil = mysqli_fetch_object($eksekusi)){
             $d["id_bkeluar"] = $ambil->id_bkeluar;
-            $d["id_barang"] = $ambil->id_barang;
+            $d["nama_barang"] = $ambil->nama_barang;
             $d["jumlah"] = $ambil->jumlah;
             $d["tgl_keluar"] = $ambil->tgl_keluar;
 
