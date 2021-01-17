@@ -7,9 +7,8 @@ $response = array();
 
         $id_barang     = $_POST["id_barang"];
         $jumlah        = $_POST["jumlah"];
-        $tgl_keluar     = $_POST["tgl_keluar"];
 
-        $query    = "INSERT INTO barang_keluar (id_barang, jumlah, tgl_keluar) VALUES ('$id_barang', '$jumlah', $tgl_keluar)";
+        $query    = "INSERT INTO barang_keluar (id_barang, jumlah, tgl_keluar) VALUES ('$id_barang', '$jumlah', NOW())";
         $eksekusi = mysqli_query($konek, $query);
         $cek      = mysqli_affected_rows($konek);
 
